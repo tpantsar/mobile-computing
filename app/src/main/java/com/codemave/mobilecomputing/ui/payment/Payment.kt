@@ -80,7 +80,7 @@ fun Payment(
                         contentDescription = null
                     )
                 }
-                Text(text = "Payment")
+                Text(text = "Reminder")
             }
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -90,7 +90,7 @@ fun Payment(
                 OutlinedTextField(
                     value = title.value,
                     onValueChange = { title.value = it },
-                    label = { Text(text = "Payment title")},
+                    label = { Text(text = "Title")},
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(10.dp))
@@ -103,25 +103,13 @@ fun Payment(
                     OutlinedTextField(
                         value = amount.value,
                         onValueChange = { amount.value = it },
-                        label = { Text(text = "Amount")},
+                        label = { Text(text = "Due date")},
                         keyboardOptions = KeyboardOptions(
                             keyboardType = KeyboardType.Number
                         ),
                         modifier = Modifier.fillMaxWidth(fraction = 0.5f)
                     )
                     Spacer(modifier = Modifier.width(10.dp))
-                    if (latlng == null) {
-                        OutlinedButton(
-                            onClick = { navController.navigate("map") },
-                            modifier = Modifier.height(55.dp)
-                        ) {
-                            Text(text = "Payment location")
-                        }
-                    } else {
-                        Text(
-                            text = "Lat: ${latlng.latitude}, \nLng: ${latlng.longitude}"
-                        )
-                    }
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -146,7 +134,7 @@ fun Payment(
                         .fillMaxWidth()
                         .size(55.dp)
                 ) {
-                    Text("Save payment")
+                    Text("Create reminder")
                 }
             }
         }
